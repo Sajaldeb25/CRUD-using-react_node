@@ -1,17 +1,10 @@
-import React, { useState, useEffect }  from "react";
-import {toast} from "react-toastify";
-import { getNames } from "./api";
+import React from "react";
+import {Spin, Space } from "antd";
 
-const Crud = () => {
-    const [name, setName] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [names, setNames] =useState([]);
+const Loading = () => (
+    <Space size="middle">
+        <Spin size="large" />
+    </Space>
+);
 
-    useEffect(() => {
-        loadNames();
-    }, []);
-    const loadNames = () => getNames().then((name) => setNames(name.data));
-};
-
-
-export default Crud;
+export default Loading;
